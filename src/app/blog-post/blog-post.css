@@ -1,0 +1,118 @@
+:host {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  color: #e0e0e0;
+  background-color: #0a0a0a;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  --primary-color: #64ffda;
+  --secondary-color: #bd93f9;
+  --bg-card: #111;
+  --text-primary: #eee;
+  --text-secondary: #aaa;
+}
+
+.blog-post {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--bg-card);
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid #333;
+}
+
+.post-header {
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.tags {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background: rgba(100, 255, 218, 0.1);
+  color: var(--primary-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid rgba(100, 255, 218, 0.2);
+}
+
+.title {
+  font-size: 3rem;
+  margin: 0 0 1rem;
+  background: linear-gradient(135deg, #fff 0%, #aaa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  font-weight: 300;
+  margin: 0;
+}
+
+.tltr {
+  background: rgba(189, 147, 249, 0.05);
+  border-left: 4px solid var(--secondary-color);
+  padding: 1.5rem;
+  margin-bottom: 3rem;
+  border-radius: 0 8px 8px 0;
+}
+
+.tltr h3 {
+  margin: 0 0 1rem;
+  color: var(--secondary-color);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tltr ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.tltr li {
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.content {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+.content p {
+  margin-bottom: 1.5rem;
+}
+
+.content h3 {
+  color: #fff;
+  font-size: 1.75rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .blog-post {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2.25rem;
+  }
+}

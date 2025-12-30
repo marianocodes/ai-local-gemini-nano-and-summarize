@@ -1,0 +1,32 @@
+<article class="blog-post">
+  <header class="post-header">
+    <div class="tags">
+      <span class="tag">Artificial Intelligence</span>
+      <span class="tag">Future</span>
+      <span class="tag">Tech</span>
+    </div>
+    <h1 class="title">The Rise of Agentic AI: A New Era of Coding</h1>
+    <h2 class="subtitle">How autonomous agents are transforming the software development landscape</h2>
+  </header>
+
+  <section class="tltr">
+    <h3>TL;DR</h3>
+    <div class="whitespace-pre-line">
+      @if (tltrContent().length > 0) {
+      <ul>
+        @for (item of tltrContent(); track $index) {
+        <li>{{ item }}</li>
+        }
+      </ul>
+      }
+      @else {
+      <p>Loading...</p>
+      }
+    </div>
+
+  </section>
+
+  <div class="content">
+    <div [innerHTML]="postContent"></div>
+  </div>
+</article>
