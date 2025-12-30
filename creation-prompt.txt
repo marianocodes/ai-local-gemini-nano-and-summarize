@@ -1,0 +1,41 @@
+
+You are an expert Frontend Developer. Your task is to build a premium, visually stunning blog post page for an Angular application. The project is already initialized.
+
+### Goal
+Create a standalone component named `BlogPost` that serves as a static blog post page. The design should be modern, "dark mode" by default, and evoke a high-tech, futuristic feel suitable for the topic of "Agentic AI".
+
+### Structure & Content Constraints
+The page must contain the following specific elements, stacked vertically:
+
+1.  **Header Section**:
+    *   **Tags**: A row of small pill-shaped tags: "Artificial Intelligence", "Future", "Tech".
+    *   **Title**: Large, impactful typography: "The Rise of Agentic AI: A New Era of Coding".
+    *   **Subtitle**: A lighter sub-heading: "How autonomous agents are transforming the software development landscape".
+
+2.  **TL;DR Section**:
+    *   Placed prominently below the header but before the main content.
+    *   This section must clearly stand out from the rest of the text (e.g., using a border, different background tint, or accent color).
+    *   **Heading**: "TL;DR".
+    *   **Content**: A bulleted list summarizing the article (e.g., AI moving from autocomplete to autonomy, changing developer roles to architects).
+
+3.  **Main Content**:
+    *   Several paragraphs of text discussing "Agentic AI".
+    *   Explain how it differs from traditional coding assistants.
+    *   Discuss the shift from "writing code" to "guiding agents".
+    *   Use highly readable typography with good line height and contrast.
+
+### Design & Aesthetics (Crucial)
+*   **Theme**: Dark mode. Background should be very dark (nearly black), text should be light grey/white.
+*   **Typography**: Use a clean sans-serif font like 'Inter'.
+*   **Color Palette**: Use neon/electric accents to pop against the dark background.
+    *   *Primary Accent*: Electric Teal or Cyan (for tags/highlights).
+    *   *Secondary Accent*: Electric Purple (for the TL;DR section or links).
+*   **Visual Style**:
+    *   The blog post container should look like a "card" floating in the center of the screen with a subtle shadow and rounded corners.
+    *   Use subtle gradients for the text title if possible.
+    *   Ensure the design is fully responsive (looks good on mobile).
+
+### Technical Requirements
+*   Use Angular Standalone Components.
+*   Hardcode all the text content directly in the template or component class for now.
+*   Do NOT implement any actual AI calls or backend services; this is purely a UI implementation task.

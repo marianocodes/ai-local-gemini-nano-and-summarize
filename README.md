@@ -1,6 +1,18 @@
-# AngularAiLocal
+# Angular AI Local
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+This project demonstrates how to use the built-in AI capabilities in Google Chrome (Gemini Nano) within an Angular application.
+
+It features a Blog Post page that uses the **Summarizer API** to generate a "TL;DR" summary of the content and the **Prompt API** (Language Model) to format that summary into structured HTML. All of this runs locally in the browser, preserving privacy and reducing latency.
+
+## Prerequisites: Enabling Chrome AI
+
+To run this application and see the AI features in action, you need to use Google Chrome (or Chrome Canary) and enable the following flags:
+
+1.  Open `chrome://flags` in a new tab.
+2.  Enable **chrome://flags/#optimization-guide-on-device-model** and **chrome://flags/#prompt-api-for-gemini-nano-multimodal-input**.
+3.  Relaunch Chrome.
+
+*Note: These APIs are experimental and may require joining an origin trial or specific browser versions.*
 
 ## Development server
 
@@ -43,16 +55,6 @@ To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use th
 ```bash
 ng test
 ```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
 ## Additional Resources
 
