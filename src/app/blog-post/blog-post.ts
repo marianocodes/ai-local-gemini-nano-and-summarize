@@ -1,7 +1,5 @@
-import { Component, OnInit, signal } from '@angular/core';
-
-declare const Summarizer: any;
-declare const LanguageModel: any;
+import { Component, inject, signal, OnInit } from '@angular/core';
+import { AiService } from '../services/ai.service';
 
 const content = `
     <p>
@@ -28,29 +26,7 @@ const content = `
       As we embrace this new era, the synergy between human creativity and machine efficiency will unlock potential that we are 
       only just beginning to understand. Welcome to the future of coding.
     </p>
-`
-
-const schema = {
-  "type": "object",
-  "required": ["type", "items"],
-  "properties": {
-    "type": {
-      "type": "string",
-      "enum": ["bullet_list"],
-      "description": "Identifies the content as a bullet list"
-    },
-    "items": {
-      "type": "array",
-      "minItems": 1,
-      "items": {
-        "type": "string",
-        "minLength": 1
-      },
-      "description": "Each entry is one bullet item, without bullet symbols"
-    }
-  },
-  "additionalProperties": false
-}
+`;
 
 @Component({
   selector: 'app-blog-post',
@@ -59,41 +35,12 @@ const schema = {
   styleUrl: './blog-post.css',
 })
 export class BlogPost implements OnInit {
-  private sessionSummarize?: typeof Summarizer;
-  private sessionLanguageModel?: typeof LanguageModel;
+  private aiService = inject(AiService);
   public readonly postContent = content;
   public tltrContent = signal<string[]>([]);
 
-  public async ngOnInit(): Promise<void> {
-    this.sessionSummarize = await Summarizer.create({
-      type: 'key-points',
-      length: 'short',
-      expectedInputLanguages: ['en'],
-      outputLanguage: 'en',
-      expectedContextLanguages: ['en'],
-      sharedContext: 'About AI and Agentic AI'
-    });
-
-    const summary = await this.sessionSummarize.summarize(content, {
-      context: 'This article is intended for a tech-savvy audience.',
-    });
-
-    console.log(`Summary result: ${summary}`);
-
-    this.sessionLanguageModel = await LanguageModel.create({
-      initialPrompts: [
-        { role: 'system', content: 'Convert this bullets into html. Return only the HTML' }
-      ],
-    });
-
-    const formattedResult = await this.sessionLanguageModel.prompt(summary, { responseConstraint: schema });
-
-    const parsedResult = JSON.parse(formattedResult);
-
-    console.log(`Structured Output. Bullets: ${parsedResult?.items}`);
-
-    this.tltrContent.set(parsedResult?.items || []);
-    this.sessionLanguageModel?.destroy()
-    this.sessionSummarize?.destroy();
+  async ngOnInit() {
+    const tldr = await this.aiService.generateTlDr(this.postContent);
+    this.tltrContent.set(tldr);
   }
 }
